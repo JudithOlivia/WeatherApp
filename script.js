@@ -1,4 +1,4 @@
-const API_KEY = "6767"; 
+const API_KEY = "5f472cba648e816a7fb4f708bd69eaaf"; 
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 const cityInput = document.getElementById("cityInput");
@@ -52,4 +52,8 @@ function displayWeatherData(data) {
     const windSpeed = data.wind.speed;
     const description = data.weather[0].description;
     const iconCode = data.weather[0].icon;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+
 }
+
