@@ -1,4 +1,4 @@
-const API_KEY = "YOUR_API_KEY_HERE"; 
+const API_KEY = "6767"; 
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 const cityInput = document.getElementById("cityInput");
@@ -44,5 +44,12 @@ async function fetchWeatherData(city) {
 }
 
 function displayWeatherData(data) {
-    
+    const cityName = data.name;
+    const country = data.sys.country;
+    const temp = Math.round(data.main.temp);
+    const feelsLike = Math.round(data.main.feels_like);
+    const humidity = data.main.humidity;
+    const windSpeed = data.wind.speed;
+    const description = data.weather[0].description;
+    const iconCode = data.weather[0].icon;
 }
