@@ -21,5 +21,28 @@ async function handleSearch() {
 }
 
 async function fetchWeatherData(city) {
+    showLoading();
 
+    try{
+        const url = `${BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!response.ok) {
+            if (response.status === 404) {
+                throw new Error(`City "${city}" not found. Please check spelling.`);
+            } else {
+                throw new Error(data.message || 'An error occurred');
+            }
+        }
+        displayWeatherData(data);
+    }
+    catch (error) {
+        showError(error.message);
+    }
+}
+
+function displayWeatherData(data) {
+    
 }
