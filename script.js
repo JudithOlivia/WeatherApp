@@ -4,11 +4,35 @@ const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const cityInput = document.getElementById("cityInput");
 const searchButton = document.getElementById("searchButton");
 const weatherInfo = document.getElementById("weatherInfo");
+const celsius = document.getElementById("celsius");
+const fahrenheit = document.getElementById("fahrenheit");
+
+let currentUnit = 'metric';
+let currentWeatherData = null;
 
 searchButton.addEventListener('click', handleSearch);
 cityInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') handleSearch();
 });
+
+celsius.addEventListener('click', () => {
+    if (currentUnit !== 'metric') {
+        currentUnit = 'metric';
+        celsius.classList.add('active');
+        fahrenheit.classList.remove('active');
+        updateDisplayedTemperature();
+
+    }
+});
+
+fahrenheit.addEventListener('click', () => {
+    if (currentUnit !== 'imperial') {
+        currentUnit = 'imperial';
+        fahrenheit.classList.add('active');
+        celsius.classList.remove('active');
+        updateDisplayedTemperature();
+    }
+})
 
 async function handleSearch() {
     const city = cityInput.value.trim();
@@ -92,6 +116,9 @@ function showLoading() {
     weatherInfo.innerHTML = '<p class="loading">Loading weather data...</p>'; 
 }
 
+function updateDisplayedTemperature() {
+    
+}
 function showError(message) {
     weatherInfo.innerHTML = `<p class="error">❌ ${message}</p>`;
 }
