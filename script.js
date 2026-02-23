@@ -11,7 +11,7 @@ cityInput.addEventListener('keypress', (e) => {
 });
 
 async function handleSearch() {
-    const city = cityInput.ariaValueMax.trim();
+    const city = cityInput.value.trim();
 
     if (!city) {
         showError('Please enter a city name.');
