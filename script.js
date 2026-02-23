@@ -48,8 +48,8 @@ async function fetchWeatherData(city) {
     showLoading();
 
     try{
-        const url = `${BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
-
+        const url = `${BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=${currentUnit}`;
+        
         const response = await fetch(url);
         const data = await response.json();
 
@@ -110,15 +110,20 @@ function displayWeatherData(data) {
     `;
     
     weatherInfo.innerHTML = weatherHTML;
+    currentWeatherData = data;
+}
+
+function updateDisplayedTemperature() {
+    if (currentWeatherData) {
+        const city = currentWeatherData.name;
+        fetchWeatherData(city);
+    }
 }
 
 function showLoading() {
     weatherInfo.innerHTML = '<p class="loading">Loading weather data...</p>'; 
 }
 
-function updateDisplayedTemperature() {
-    
-}
 function showError(message) {
     weatherInfo.innerHTML = `<p class="error">❌ ${message}</p>`;
 }

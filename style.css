@@ -77,7 +77,7 @@ h1 {
 }
 
 .placeholder {
-    color: #cae4ec;
+    color: #81a7f1;
     font-size: 1.1em;
 }
 
@@ -146,24 +146,25 @@ h1 {
     margin-top: 25px;
 }
 
-.units-btn {
+.unit-btn {
     padding: 8px 20px;
     border: 2px solid #667eea;
     background: white;
     color: #667eea;
     border-radius: 25px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+    letter-spacing: 0.5px; 
 }
 
-.units-btn.active {
+.unit-btn.active {
     background: #667eea;
     color: white;
 }
 
-.units-btn:hover {
-    background: #6725a9;
+.unit-btn:hover {
+    background: #8638d3;
     color: white;
 }
