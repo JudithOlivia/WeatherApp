@@ -1,4 +1,4 @@
-# Weather App
+# Sky Sense
 A simple weather application that shows real-time weather data.
 
 ## Features
